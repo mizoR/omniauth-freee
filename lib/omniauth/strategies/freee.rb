@@ -5,13 +5,17 @@ module OmniAuth
     class Freee < OmniAuth::Strategies::OAuth2
       option :client_options, {
         :site => 'https://api.freee.co.jp',
-        :authorize_url => 'https://api.freee.co.jp/oauth/authorize',
+        :authorize_url => 'https://secure.freee.co.jp/oauth/authorize',
         :token_url => 'https://api.freee.co.jp/oauth/token'
       }
 
       def request_phase
         super
       end
+
+      def callback_phase
+        super
+      end      
 
       uid { raw_info['email'].to_s }
 
@@ -33,9 +37,9 @@ module OmniAuth
         @raw_info ||= access_token.get('users/me').parsed
       end
 
-      def callback_url
-        full_host + script_name + callback_path
-      end
+      # def callback_url
+      #   full_host + script_name + callback_path
+      # end
     end
   end
 end
