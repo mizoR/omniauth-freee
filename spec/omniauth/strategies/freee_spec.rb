@@ -58,7 +58,7 @@ describe OmniAuth::Strategies::Freee do
 
   context '#raw_info' do
     it 'should use relative paths' do
-      expect(access_token).to receive(:get).with('users/me').and_return(response)
+      expect(access_token).to receive(:get).with('/api/1/users/me?companies=true').and_return(response)
       expect(subject.raw_info).to eq(parsed_response)
     end
   end
