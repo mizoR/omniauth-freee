@@ -34,11 +34,11 @@ describe OmniAuth::Strategies::Freee do
     end
 
     it 'should have correct authorize url' do
-      expect(subject.options.client_options.authorize_url).to eq('https://secure.freee.co.jp/oauth/authorize')
+      expect(subject.options.client_options.authorize_url).to eq('https://accounts.secure.freee.co.jp/public_api/authorize')
     end
 
     it 'should have correct token url' do
-      expect(subject.options.client_options.token_url).to eq('https://api.freee.co.jp/oauth/token')
+      expect(subject.options.client_options.token_url).to eq('https://accounts.secure.freee.co.jp/public_api/token')
     end
 
     describe 'should be overrideable' do
