@@ -6,8 +6,8 @@ module OmniAuth
     class Freee < OmniAuth::Strategies::OAuth2
       option :client_options, {
         :site => 'https://api.freee.co.jp',
-        :authorize_url => 'https://secure.freee.co.jp/oauth/authorize',
-        :token_url => 'https://api.freee.co.jp/oauth/token'
+        :authorize_url => 'https://accounts.secure.freee.co.jp/public_api/authorize',
+        :token_url => 'https://accounts.secure.freee.co.jp/public_api/token'
       }
 
       uid { raw_info['user']['email'].to_s }
